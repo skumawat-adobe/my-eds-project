@@ -1,0 +1,27 @@
+name: AI PR Review
+on:
+  pull_request:
+    types: [opened, synchronize]
+jobs:
+  ai-review:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: AI Code Review
+        uses: anthropics/claude-code-action@beta
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          direct_prompt: |
+            Review this EDS PR:
+            - ESLint compliance (airbnb-base)
+            - moveInstrumentation used when DOM restructured
+            - No hardcoded URLs (fetchConfigs() only)
+            - _<block>.json has correct UE component model
+            - CSS uses rgb() not rgba(), one declaration per line
+            - Flag hallucination-risk patterns
+            Post concise review comment with findings.
