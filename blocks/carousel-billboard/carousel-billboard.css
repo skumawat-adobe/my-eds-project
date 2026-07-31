@@ -1,3 +1,20 @@
+/*
+ * carousel-billboard — full-bleed activities billboard carousel
+ * Values extracted from computed styles of lakepowell.com (Fishing/Activities billboard).
+ * A large background photo with a floating white content card overlaid,
+ * plus floating prev/next controls.
+ */
+
+.carousel-billboard {
+  position: relative;
+
+  /* full-bleed break-out of the centered .section > div container */
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
 .carousel-billboard .carousel-billboard-slides-container {
   position: relative;
 }
@@ -21,133 +38,190 @@
 }
 
 .carousel-billboard .carousel-billboard-slide {
+  box-sizing: border-box;
+  position: relative;
   flex: 0 0 100%;
   scroll-snap-align: start;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
-  position: relative;
+  justify-content: flex-end;
   width: 100%;
-  min-height: min(50vw, calc(100dvh - var(--header-height)));
+  min-height: 560px;
+  padding: 16px;
 }
 
-.carousel-billboard .carousel-billboard-slide:has(.carousel-billboard-slide-content[data-align='center']) {
-  align-items: center;
-}
-
-.carousel-billboard .carousel-billboard-slide:has(.carousel-billboard-slide-content[data-align='right']) {
-  align-items: flex-end;
-}
-
-.carousel-billboard .carousel-billboard-slide .carousel-billboard-slide-image picture {
+/* --- Background image fills the whole slide --- */
+.carousel-billboard .carousel-billboard-slide-image {
   position: absolute;
   inset: 0;
+  margin: 0;
 }
 
-.carousel-billboard .carousel-billboard-slide .carousel-billboard-slide-image picture > img {
-  height: 100%;
+.carousel-billboard .carousel-billboard-slide-image picture {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.carousel-billboard .carousel-billboard-slide-image img {
   width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
-.carousel-billboard .carousel-billboard-slide .carousel-billboard-slide-content {
-  z-index: 1;
-  margin: 68px;
-  padding: 16px;
-  color: white;
-  background-color: rgba(19 19 19 / 75%);
+/* --- Floating white content card --- */
+.carousel-billboard .carousel-billboard-slide-content {
+  box-sizing: border-box;
   position: relative;
-  width: var(--slide-content-width, auto);
-}
-
-.carousel-billboard .carousel-billboard-slide-indicators {
+  z-index: 1;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 6px 12px;
-  padding: 12px;
-  background-color: var(--light-color);
-  line-height: 0;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 400px;
+  padding: 24px;
+  border-radius: 4px;
+  background-color: #fff;
+  color: var(--text-color);
 }
 
-.carousel-billboard .carousel-billboard-slide-indicator button {
-  width: 24px;
-  height: 24px;
+/* description + generic paragraphs */
+.carousel-billboard .carousel-billboard-slide-content p {
   margin: 0;
-  padding: 0;
-  border-radius: 50%;
-  background-color: #dadada;
-  transition: background-color 0.2s;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  line-height: 27px;
+  color: var(--text-color);
 }
 
-.carousel-billboard .carousel-billboard-slide-indicator button:disabled,
-.carousel-billboard .carousel-billboard-slide-indicator button:hover,
-.carousel-billboard .carousel-billboard-slide-indicator button:focus-visible {
-  background-color: var(--text-color);
+/* eyebrow (ACTIVITIES / MORE THINGS TO DO) */
+.carousel-billboard .carousel-billboard-slide-content p:first-of-type {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 27px;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
 }
 
+.carousel-billboard .carousel-billboard-slide-content h2 {
+  margin: 0;
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-l);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.03em;
+  color: var(--text-color);
+}
+
+/* button container spacing reset (gap handles vertical rhythm) */
+.carousel-billboard .carousel-billboard-slide-content .button-container {
+  margin: 0;
+}
+
+/* Re-assert the filled teal CTA (global styles.css resets a.button to a plain link) */
+main .carousel-billboard a.button:any-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 8px 32px;
+  border: 2px solid var(--brand-teal);
+  border-radius: 2px;
+  background-color: var(--brand-teal);
+  color: #fff;
+  font-family: var(--body-font-family);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+main .carousel-billboard a.button:any-link:hover,
+main .carousel-billboard a.button:any-link:focus-visible {
+  background-color: var(--link-hover-color);
+  border-color: var(--link-hover-color);
+  color: #fff;
+}
+
+/* --- Floating prev/next controls (aligned to the top-right of the card column) --- */
 .carousel-billboard .carousel-billboard-navigation-buttons {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 12px;
-  right: 12px;
+  top: 24px;
+  left: 16px;
+  z-index: 2;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  z-index: 1;
+  justify-content: flex-end;
+  gap: 8px;
+  width: min(400px, calc(100% - 32px));
 }
 
 /* stylelint-disable-next-line no-descending-specificity */
 .carousel-billboard .carousel-billboard-navigation-buttons button {
   position: relative;
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   margin: 0;
-  border-radius: 50%;
   padding: 0;
-  background-color: rgba(19 19 19 / 25%);
+  border: 1px solid rgb(196 204 216);
+  border-radius: 50%;
+  background-color: rgb(255 255 255 / 85%);
+  color: var(--text-color);
   transition: background-color 0.2s;
 }
 
 .carousel-billboard .carousel-billboard-navigation-buttons button:hover,
 .carousel-billboard .carousel-billboard-navigation-buttons button:focus-visible {
-  background-color: rgba(19 19 19 / 75%);
+  background-color: #fff;
 }
 
 .carousel-billboard .carousel-billboard-navigation-buttons button::after {
   display: block;
   content: '';
-  border: 2px solid;
-  border-bottom: 0;
-  border-left: 0;
-  height: 12px;
-  width: 12px;
   position: absolute;
   top: 50%;
   left: calc(50% + 2px);
+  width: 9px;
+  height: 9px;
+  border: 2px solid currentcolor;
+  border-bottom: 0;
+  border-left: 0;
   transform: translate(-50%, -50%) rotate(-135deg);
 }
 
 .carousel-billboard .carousel-billboard-navigation-buttons button.slide-next::after {
-  transform: translate(-50%, -50%) rotate(45deg);
   left: calc(50% - 2px);
+  transform: translate(-50%, -50%) rotate(45deg);
 }
 
-@media (width >= 600px) {
+/* Source design uses arrows only — hide the dot indicators */
+.carousel-billboard .carousel-billboard-slide-indicators {
+  display: none;
+}
+
+@media (width >= 900px) {
+  .carousel-billboard .carousel-billboard-slide {
+    min-height: min(46.875vw, 675px);
+    padding: 32px;
+  }
+
+  .carousel-billboard .carousel-billboard-slide-content {
+    width: auto;
+    max-width: 400px;
+    padding: 32px;
+  }
+
+  .carousel-billboard .carousel-billboard-slide-content h2 {
+    font-size: 34px;
+    line-height: 1.3;
+  }
+
   .carousel-billboard .carousel-billboard-navigation-buttons {
-    left: 24px;
-    right: 24px;
-  }
-
-  .carousel-billboard .carousel-billboard-slide .carousel-billboard-slide-content {
-    --slide-content-width: calc((100% - 184px) / 2);
-
-    margin: 92px;
-  }
-
-  .carousel-billboard .carousel-billboard-slide .carousel-billboard-slide-content[data-align='justify'] {
-    --slide-content-width: auto;
+    top: 48px;
+    left: 32px;
+    width: min(400px, calc(100% - 64px));
   }
 }
