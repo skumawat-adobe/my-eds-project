@@ -1,0 +1,39 @@
+{
+  "variantName": "hero-cta",
+  "baseBlock": "hero",
+  "version": "1.0.0",
+  "created": "2026-07-31T11:54:40.263661+00:00",
+  "sourceContext": {
+    "originUrl": "https://www.lakepowell.com/",
+    "originPage": "Lake Powell homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "accent",
+    "density": "compact",
+    "purpose": "cta-banner",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "heading + 1 CTA on full-width tinted band",
+    "buttonCount": 1,
+    "imageCount": 0
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "mid-page call-to-action banners",
+      "'view all' / promo strips with a single button"
+    ],
+    "notSuitableFor": [
+      "above-the-fold hero with large background media",
+      "multi-column content"
+    ]
+  },
+  "usage": {
+    "pagesUsing": [
+      "/index"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-07-31T11:54:40.263661+00:00"
+  }
+}

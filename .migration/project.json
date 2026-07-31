@@ -1,0 +1,10 @@
+{
+  "type": "da",
+  "sites": {
+    "my-eds-project": {
+      "previewOrg": "skumawat-adobe",
+      "previewSite": "my-eds-project",
+      "libraryUrl": "https://main--sta-boilerplate--aemdemos.aem.page/tools/sidekick/library.json"
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "variantName": "columns-feature",
+  "baseBlock": "columns",
+  "version": "1.0.0",
+  "created": "2026-07-31T11:54:40.263661+00:00",
+  "sourceContext": {
+    "originUrl": "https://www.lakepowell.com/",
+    "originPage": "Lake Powell homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "feature",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "alternating text column (eyebrow + heading + paragraph + CTA) beside image",
+    "buttonCount": 2,
+    "imageCount": 2
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "alternating text/image feature rows",
+      "'ways to play' / editorial side-by-side sections"
+    ],
+    "notSuitableFor": [
+      "uniform repeating card grids",
+      "tabular data comparisons"
+    ]
+  },
+  "usage": {
+    "pagesUsing": [
+      "/index"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-07-31T11:54:40.263661+00:00"
+  }
+}

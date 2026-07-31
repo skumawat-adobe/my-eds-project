@@ -1,0 +1,46 @@
+/*
+ * brand.css — Lake Powell design tokens
+ * Extracted from https://www.lakepowell.com/
+ * Heading font: Petrona (serif). Body font: Inter (sans-serif).
+ */
+
+:root {
+  /* fonts */
+  --heading-font-family: petrona, petrona-fallback, serif;
+  --body-font-family: inter, inter-fallback, sans-serif;
+
+  /* colors */
+  --background-color: #fff;
+  --text-color: #041526; /* deep navy */
+  --link-color: #174355; /* teal */
+  --link-hover-color: #0f2d3a;
+
+  /* brand accents */
+  --brand-navy: #041526;
+  --brand-teal: #174355;
+  --brand-light: #f5f2ec; /* warm off-white band */
+
+  /* spacing */
+  --nav-height: 98px;
+
+  /* heading sizes (desktop) */
+  --heading-size-xxl: 64px;
+  --heading-size-xl: 40px;
+  --heading-size-l: 32px;
+  --heading-size-m: 24px;
+  --heading-size-s: 20px;
+  --heading-size-xs: 18px;
+}
+
+/* fallback fonts to reduce CLS */
+@font-face {
+  font-family: petrona-fallback;
+  size-adjust: 100%;
+  src: local('Georgia');
+}
+
+@font-face {
+  font-family: inter-fallback;
+  size-adjust: 100%;
+  src: local('Arial');
+}

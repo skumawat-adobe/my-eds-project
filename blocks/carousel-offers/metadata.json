@@ -1,0 +1,39 @@
+{
+  "variantName": "carousel-offers",
+  "baseBlock": "carousel",
+  "version": "1.0.0",
+  "created": "2026-07-31T11:54:40.263661+00:00",
+  "sourceContext": {
+    "originUrl": "https://www.lakepowell.com/",
+    "originPage": "Lake Powell homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "promo-offers",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "image + tag + heading + description + 2 CTAs per slide",
+    "buttonCount": 2,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "rotating special-offer promotions",
+      "slides with image plus offer copy and dual CTAs"
+    ],
+    "notSuitableFor": [
+      "static single-image banners",
+      "simple image galleries without copy"
+    ]
+  },
+  "usage": {
+    "pagesUsing": [
+      "/index"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-07-31T11:54:40.263661+00:00"
+  }
+}

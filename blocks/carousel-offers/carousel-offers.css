@@ -1,0 +1,246 @@
+/* Block: carousel-offers — center-peek special-offers carousel */
+
+/* Values extracted from lakepowell.com .carousel-cards computed styles. */
+
+.carousel-offers {
+  /* Side padding lets the first/last card centre; flex-basis is expressed
+     relative to the padding-reduced content box so the resulting card ends
+     up ~60% of the viewport with symmetric peeks (matches source). */
+  /* card width is viewport-relative so it maps directly to the source
+     proportion (source active card ≈ 47% of viewport at desktop). */
+  --carousel-offers-basis: 80vw;
+  --carousel-offers-gap: 16px;
+
+  /* padding = (100% - basis)/2 so every card (incl. first/last) centres */
+  --carousel-offers-pad: calc((100% - var(--carousel-offers-basis)) / 2);
+
+  position: relative;
+  text-align: center;
+}
+
+/* full-bleed: neighbours peek beyond the section content width */
+.carousel-offers-wrapper {
+  max-width: 100% !important;
+  padding: 24px 0 !important;
+}
+
+.carousel-offers .carousel-offers-slides-container {
+  position: relative;
+}
+
+.carousel-offers .carousel-offers-slides,
+.carousel-offers .carousel-offers-slide-indicators {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* horizontal scroller of cards */
+.carousel-offers .carousel-offers-slides {
+  display: flex;
+  gap: var(--carousel-offers-gap);
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  overflow: scroll clip;
+
+  /* symmetric padding centres the first/last card in the viewport */
+  padding-inline: var(--carousel-offers-pad);
+}
+
+.carousel-offers .carousel-offers-slides::-webkit-scrollbar {
+  display: none;
+}
+
+/* individual card */
+.carousel-offers .carousel-offers-slide {
+  flex: 0 0 var(--carousel-offers-basis);
+  scroll-snap-align: center;
+  display: flex;
+  flex-direction: column;
+  opacity: 0.3;
+  transition: opacity 0.3s ease;
+}
+
+/* the active (centred) card is fully opaque */
+.carousel-offers .carousel-offers-slide[aria-hidden='false'] {
+  opacity: 1;
+}
+
+/* card image — 16:9, fills width */
+.carousel-offers .carousel-offers-slide-image {
+  margin: 0;
+  line-height: 0;
+}
+
+.carousel-offers .carousel-offers-slide-image picture {
+  display: block;
+}
+
+.carousel-offers .carousel-offers-slide-image img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+
+/* card content — below the image, centred */
+.carousel-offers .carousel-offers-slide-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 32px 16px;
+  color: var(--text-color);
+  text-align: center;
+}
+
+/* eyebrow pill (e.g. SPECIAL OFFER) */
+.carousel-offers .carousel-offers-eyebrow {
+  margin: 0;
+  align-self: center;
+  padding: 4px 8px;
+  border: 1px solid var(--brand-teal);
+  border-radius: 2px;
+  background-color: #e7ecf1;
+  color: var(--brand-teal);
+  font-family: var(--body-font-family);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 13px;
+  letter-spacing: normal;
+}
+
+/* card title */
+.carousel-offers .carousel-offers-slide-content h3 {
+  margin: 0;
+  font-family: var(--heading-font-family);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 26px;
+  letter-spacing: -0.6px;
+  color: var(--text-color);
+}
+
+/* card description */
+.carousel-offers .carousel-offers-description {
+  margin: 0;
+  max-width: 34em;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 27px;
+  color: var(--text-color);
+}
+
+/* CTAs — stacked & centred */
+.carousel-offers .carousel-offers-cta {
+  margin: 0;
+}
+
+.carousel-offers .carousel-offers-cta a:any-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--body-font-family);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+/* first CTA rendered as a filled teal button */
+.carousel-offers .carousel-offers-cta-primary a:any-link {
+  padding: 10px 32px;
+  border: 2px solid var(--brand-teal);
+  border-radius: 2px;
+  background-color: var(--brand-teal);
+  color: #fff;
+  white-space: nowrap;
+}
+
+.carousel-offers .carousel-offers-cta-primary a:any-link:hover,
+.carousel-offers .carousel-offers-cta-primary a:any-link:focus-visible {
+  border-color: var(--link-hover-color);
+  background-color: var(--link-hover-color);
+  color: #fff;
+  text-decoration: none;
+}
+
+/* second CTA rendered as an uppercase text link */
+.carousel-offers .carousel-offers-cta-text a:any-link {
+  padding: 8px 0;
+  color: var(--brand-teal);
+}
+
+.carousel-offers .carousel-offers-cta-text a:any-link:hover,
+.carousel-offers .carousel-offers-cta-text a:any-link:focus-visible {
+  color: var(--link-hover-color);
+  text-decoration: underline;
+}
+
+/* prev / next navigation — round buttons centred below the carousel */
+.carousel-offers .carousel-offers-navigation-buttons {
+  position: static;
+  transform: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.carousel-offers .carousel-offers-navigation-buttons button {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: #e7ecf1;
+  color: var(--text-color);
+  transition: background-color 0.2s;
+}
+
+.carousel-offers .carousel-offers-navigation-buttons button:hover,
+.carousel-offers .carousel-offers-navigation-buttons button:focus-visible {
+  background-color: #d5dde5;
+}
+
+.carousel-offers .carousel-offers-navigation-buttons button::after {
+  display: block;
+  content: '';
+  border: 2px solid;
+  border-bottom: 0;
+  border-left: 0;
+  height: 9px;
+  width: 9px;
+  position: absolute;
+  top: 50%;
+  left: calc(50% + 2px);
+  transform: translate(-50%, -50%) rotate(-135deg);
+}
+
+.carousel-offers .carousel-offers-navigation-buttons button.slide-next::after {
+  transform: translate(-50%, -50%) rotate(45deg);
+  left: calc(50% - 2px);
+}
+
+/* pagination dots are not used in this design */
+.carousel-offers .carousel-offers-slide-indicators {
+  display: none;
+}
+
+@media (width >= 900px) {
+  .carousel-offers {
+    --carousel-offers-basis: 47vw;
+    --carousel-offers-gap: 24px;
+  }
+
+  .carousel-offers-wrapper {
+    padding: 56px 0 !important;
+  }
+}
