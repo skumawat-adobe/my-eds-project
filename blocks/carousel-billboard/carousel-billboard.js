@@ -1,4 +1,3 @@
-import { fetchPlaceholders } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 function updateActiveSlide(slide) {
@@ -97,7 +96,7 @@ export default async function decorate(block) {
   const rows = block.querySelectorAll(':scope > div');
   const isSingleSlide = rows.length < 2;
 
-  const placeholders = await fetchPlaceholders();
+  const placeholders = {};
 
   block.setAttribute('role', 'region');
   block.setAttribute('aria-roledescription', placeholders.carousel || 'Carousel');

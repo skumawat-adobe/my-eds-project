@@ -3,11 +3,8 @@
 /* Values extracted from lakepowell.com .carousel-cards computed styles. */
 
 .carousel-offers {
-  /* Side padding lets the first/last card centre; flex-basis is expressed
-     relative to the padding-reduced content box so the resulting card ends
-     up ~60% of the viewport with symmetric peeks (matches source). */
-  /* card width is viewport-relative so it maps directly to the source
-     proportion (source active card ≈ 47% of viewport at desktop). */
+  /* Card width is viewport-relative so it maps directly to the source
+     proportion (source active card ~47% of viewport at desktop). */
   --carousel-offers-basis: 80vw;
   --carousel-offers-gap: 16px;
 
@@ -169,6 +166,7 @@
 }
 
 /* second CTA rendered as an uppercase text link */
+/* stylelint-disable-next-line no-descending-specificity */
 .carousel-offers .carousel-offers-cta-text a:any-link {
   padding: 8px 0;
   color: var(--brand-teal);

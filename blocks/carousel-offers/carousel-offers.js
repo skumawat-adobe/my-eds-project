@@ -73,13 +73,14 @@ function bindEvents(block) {
     showSlide(block, parseInt(block.dataset.activeSlide, 10) + 1);
   });
 
-  // A high threshold ensures only the fully-visible centred card (not the
-  // partially-visible peeking neighbours) is treated as the active slide.
+  // Observe intersection within the scroller itself (not the viewport) so
+  // only the fully-visible centred card — not the partially-visible peeking
+  // neighbours — is treated as the active slide.
   const slideObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) updateActiveSlide(entry.target);
     });
-  }, { threshold: 0.75 });
+  }, { root: block.querySelector('.carousel-offers-slides'), threshold: 0.75 });
   block.querySelectorAll('.carousel-offers-slide').forEach((slide) => {
     slideObserver.observe(slide);
   });
