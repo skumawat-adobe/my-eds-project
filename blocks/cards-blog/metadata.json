@@ -1,0 +1,39 @@
+{
+  "variantName": "cards-blog",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-07-31T11:54:40.263661+00:00",
+  "sourceContext": {
+    "originUrl": "https://www.lakepowell.com/",
+    "originPage": "Lake Powell homepage",
+    "blockPosition": "bottom"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "blog",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "image + category tag + title + CTA per card, 3-up grid",
+    "buttonCount": 1,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "blog/article teaser grids",
+      "news or story cards with category tags and read-more links"
+    ],
+    "notSuitableFor": [
+      "text-only card lists (use cards no-images)",
+      "single feature highlights"
+    ]
+  },
+  "usage": {
+    "pagesUsing": [
+      "/index"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-07-31T11:54:40.263661+00:00"
+  }
+}

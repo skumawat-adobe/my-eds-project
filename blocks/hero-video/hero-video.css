@@ -1,0 +1,106 @@
+/* Block: hero-video — full-bleed hero with background video/photo + gradient overlay.
+ * Values extracted from https://www.lakepowell.com/ computed styles. */
+
+/* Full-bleed: break out of the section's 1200px max-width wrapper */
+.hero-video-container .hero-video-wrapper {
+  max-width: unset;
+  margin: 0;
+  padding: 0;
+}
+
+/* Root block: flex column, content vertically centered over the media */
+.hero-video {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  min-height: 520px;
+  padding: 80px 24px;
+  overflow: hidden;
+  background-color: var(--brand-navy);
+  color: #fff;
+  text-align: center;
+}
+
+/* Background media layer (video/picture) sits behind the content */
+.hero-video .hero-video-bg {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+}
+
+.hero-video .hero-video-bg picture,
+.hero-video .hero-video-bg img,
+.hero-video .hero-video-bg video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Dark gradient overlay, stronger at the bottom (matches source) */
+.hero-video::after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background-image: linear-gradient(
+    to top,
+    rgb(4 21 38 / 20%),
+    rgb(4 21 38 / 60%)
+  );
+  pointer-events: none;
+}
+
+/* Row + text cell sit above the overlay */
+.hero-video > div {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.hero-video > div > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Eyebrow line — "Explore. Escape. Discover." */
+.hero-video p {
+  margin: 0;
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+/* Headline — large light-weight Petrona serif */
+.hero-video h1 {
+  margin: 0;
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xxl);
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  color: #fff;
+}
+
+@media (width >= 900px) {
+  .hero-video {
+    min-height: 780px;
+    padding: 120px 32px;
+  }
+
+  .hero-video > div > div {
+    max-width: 1000px;
+  }
+}

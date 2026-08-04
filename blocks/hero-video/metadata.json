@@ -1,0 +1,39 @@
+{
+  "variantName": "hero-video",
+  "baseBlock": "hero",
+  "version": "1.0.0",
+  "created": "2026-07-31T11:54:40.263661+00:00",
+  "sourceContext": {
+    "originUrl": "https://www.lakepowell.com/",
+    "originPage": "Lake Powell homepage",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "spacious",
+    "purpose": "hero",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "eyebrow + heading + 1 CTA over video background",
+    "buttonCount": 1,
+    "imageCount": 0
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "homepage hero with video/photo background",
+      "immersive landing banners with a single primary CTA"
+    ],
+    "notSuitableFor": [
+      "text-only intros without a background media",
+      "compact inline banners"
+    ]
+  },
+  "usage": {
+    "pagesUsing": [
+      "/index"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-07-31T11:54:40.263661+00:00"
+  }
+}

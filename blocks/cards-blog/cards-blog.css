@@ -1,0 +1,110 @@
+/* cards-blog — blog teaser grid
+ * Values extracted from source computed styles: .cards.block.landscape-image-top
+ * on https://www.lakepowell.com/  (see migration-work/cards-blog-extracted.css)
+ */
+
+.cards-blog > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.cards-blog > ul > li {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.cards-blog .cards-blog-card-image {
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+}
+
+.cards-blog .cards-blog-card-image img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.cards-blog .cards-blog-card-body {
+  margin: 24px 0 0;
+  padding: 0;
+}
+
+/* eyebrow / category tag (BLOG) */
+.cards-blog .cards-blog-card-body p:first-child {
+  margin: 0 0 24px;
+  font-family: var(--body-font-family);
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 18px;
+  letter-spacing: -0.24px;
+  color: var(--text-color);
+}
+
+.cards-blog .cards-blog-card-body h4 {
+  margin: 0 0 8px;
+  font-family: var(--heading-font-family);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 26px;
+  letter-spacing: -0.6px;
+  color: var(--text-color);
+}
+
+/* "Learn More" — outlined teal pill.
+ * Higher specificity than the global `main a.button` reset in styles.css. */
+.cards-blog .cards-blog-card-body .button-container {
+  margin: 0;
+}
+
+main .cards-blog .cards-blog-card-body a,
+main .cards-blog .cards-blog-card-body a.button:any-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 8px 16px;
+  border: 1px solid var(--brand-teal);
+  border-radius: 2px;
+  background: transparent;
+  color: var(--brand-teal);
+  font-family: var(--body-font-family);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+main .cards-blog .cards-blog-card-body a:hover,
+main .cards-blog .cards-blog-card-body a.button:any-link:hover {
+  background: var(--brand-teal);
+  color: #fff;
+  text-decoration: none;
+}
+
+@media (width >= 900px) {
+  .cards-blog > ul {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  .cards-blog .cards-blog-card-body p:first-child {
+    font-size: 14px;
+    line-height: 22.4px;
+    letter-spacing: -0.28px;
+  }
+}

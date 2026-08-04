@@ -1,0 +1,17 @@
+{
+  "status": "success",
+  "url": "https://www.lakepowell.com/",
+  "path": "index",
+  "timestamp": "2026-07-31T12:22:53.987Z",
+  "title": "Lake Powell Resort | Lake Powell Resorts & Marina",
+  "template": "homepage",
+  "blocks": [
+    "hero-video",
+    "carousel-offers",
+    "carousel-featured",
+    "carousel-billboard",
+    "columns-feature",
+    "hero-cta",
+    "cards-blog"
+  ]
+}

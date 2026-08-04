@@ -1,0 +1,39 @@
+{
+  "variantName": "carousel-billboard",
+  "baseBlock": "carousel",
+  "version": "1.0.0",
+  "created": "2026-07-31T11:54:40.263661+00:00",
+  "sourceContext": {
+    "originUrl": "https://www.lakepowell.com/",
+    "originPage": "Lake Powell homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "spacious",
+    "purpose": "billboard",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "full-bleed photo + floating overlay card (category + title + description + CTA)",
+    "buttonCount": 1,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "full-width activity/destination billboards",
+      "immersive slides with a floating overlay content card"
+    ],
+    "notSuitableFor": [
+      "compact tile strips",
+      "text-only carousels"
+    ]
+  },
+  "usage": {
+    "pagesUsing": [
+      "/index"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-07-31T11:54:40.263661+00:00"
+  }
+}
